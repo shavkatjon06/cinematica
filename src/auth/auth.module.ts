@@ -9,12 +9,14 @@ import { Token, TokenSchema } from 'src/schemas/token.schema';
 import { TokenModule } from 'src/token/token.module';
 import { JwtModule } from '@nestjs/jwt';
 import { JwtStrategy } from './strategies/jwt.strategy';
+import { ForgotPassword, ForgotPasswordSchema } from 'src/schemas/forgot-password.schema';
 
 @Module({
   imports: [
     MongooseModule.forFeature([
       { name: User.name, schema: UserSchema },
       { name: Token.name, schema: TokenSchema },
+      { name: ForgotPassword.name, schema: ForgotPasswordSchema }
     ]),
     JwtModule.register({
       secret: process.env.JWT_ACCESS_SECRET,

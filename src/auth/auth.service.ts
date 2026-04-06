@@ -4,13 +4,16 @@ import { Model } from 'mongoose';
 import { MailService } from 'src/mail/mail.service';
 import { User, UserDocument } from 'src/schemas/user.schema';
 import { TokenService } from 'src/token/token.service';
-import { AuthDto, VerifyDto } from './dto/auth.dto';
+import { AuthDto, ResetPasswordDto, VerifyDto } from './dto/auth.dto';
 import bcrypt from 'bcrypt'
+import { randomBytes } from 'crypto';
+import { ForgotPassword, ForgotPasswordDocument } from 'src/schemas/forgot-password.schema';
 
 @Injectable()
 export class AuthService {
     constructor(
         @InjectModel(User.name) private userModel: Model<UserDocument>,
+        @InjectModel(ForgotPassword.name) private forgotPasswordModel: Model<ForgotPasswordDocument>,
         private tokenService: TokenService,
         private mailService: MailService,
     ) { }
@@ -64,6 +67,25 @@ export class AuthService {
         if (!payload || !tokenDb) throw new UnauthorizedException()
         const user = await this.userModel.findById(payload.id)
         return this.generateTokens(user)
+    }
+
+    async resetLink(email: string) {
+        const user = await this.userModel.findOne({ email })
+        if (!user) throw new NotFoundException('User not found')
+        const token = randomBytes(16).toString('hex')
+        await this.forgotPasswordModel.create({ userId: user._id, token })
+        await this.mailService.sendResetToken(email, token)
+        return { message: 'Password reset link is sent to your email' }
+    }
+
+    async resetPassword(body: ResetPasswordDto) {
+        const record = await this.forgotPasswordModel.findOne({ token: body.token })
+        const hashed = await bcrypt.hash(body.password, 10)
+        await this.userModel.findByIdAndUpdate(record?.userId, {
+            password: hashed
+        })
+        await this.forgotPasswordModel.findByIdAndDelete({ _id: record?._id })
+        return { message: 'Your password is reset successfully' }
     }
 
     private async generateTokens(user: any) {

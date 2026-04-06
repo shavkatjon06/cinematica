@@ -1,6 +1,6 @@
 import { Body, Controller, Post, Req, Res } from '@nestjs/common';
 import { AuthService } from './auth.service';
-import { AuthDto, VerifyDto } from './dto/auth.dto';
+import { AuthDto, ResetLinkDto, ResetPasswordDto, VerifyDto } from './dto/auth.dto';
 import type { Request, Response } from 'express';
 import setAuthCookie from 'src/utils/set-auth.cookie';
 
@@ -32,6 +32,18 @@ export class AuthController {
     await this.authService.logout(req.cookies.refreshToken)
     res.clearCookie('refreshToken')
     return res.json({ message: 'ok' })
+  }
+
+  @Post('reset-link')
+  async resetLink(@Body() body: ResetLinkDto, @Res() res: Response) {
+    const data = await this.authService.resetLink(body.email)
+    return res.json(data)
+  }
+
+  @Post('reset-password')
+  async resetPassword(@Body() body: ResetPasswordDto, @Res() res: Response) {
+    const data = await this.authService.resetPassword(body)
+    return res.json(data)
   }
 
   @Post('refresh')

@@ -17,3 +17,18 @@ export class VerifyDto {
     @IsNotEmpty()
     verificationCode: string
 }
+
+export class ResetLinkDto {
+    @IsString()
+    @IsNotEmpty()
+    email: string
+}
+
+export class ResetPasswordDto {
+    @IsString()
+    @IsNotEmpty()
+    token: string
+
+    @IsNotEmpty()
+    password: string
+}
