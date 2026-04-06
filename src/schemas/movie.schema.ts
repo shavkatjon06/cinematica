@@ -15,7 +15,7 @@ export class Movie {
     description: string
 
     @Prop({ required: true })
-    duration: string
+    duration: number
 
     @Prop({ required: true })
     genre: string[]

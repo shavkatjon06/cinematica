@@ -2,6 +2,7 @@ import { Module } from "@nestjs/common";
 import { ConfigModule, ConfigService } from "@nestjs/config";
 import { MongooseModule } from "@nestjs/mongoose";
 import { Movie, MovieSchema } from "../schemas/movie.schema";
+import { Hall, HallSchema } from "../schemas/hall.schema";
 
 @Module({
     imports: [
@@ -15,6 +16,7 @@ import { Movie, MovieSchema } from "../schemas/movie.schema";
         }),
         MongooseModule.forFeature([
             { name: Movie.name, schema: MovieSchema },
+            { name: Hall.name, schema: HallSchema }
         ]),
     ],
 })
