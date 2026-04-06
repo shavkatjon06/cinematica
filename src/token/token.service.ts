@@ -2,16 +2,16 @@ import { Injectable } from "@nestjs/common";
 import { JwtService } from "@nestjs/jwt";
 import { InjectModel } from "@nestjs/mongoose";
 import { Model } from "mongoose";
-import { Token } from "src/schemas/token.schema";
+import { Token, TokenDocument } from "src/schemas/token.schema";
 
 @Injectable()
 export class TokenService {
     constructor(
-        @InjectModel(Token.name) private tokenModel: Model<Token>,
+        @InjectModel(Token.name) private tokenModel: Model<TokenDocument>,
         private jwtService: JwtService,
     ) { }
 
-    generateTokens(payload: any) {
+    generateToken(payload: any) {
         const accessToken = this.jwtService.sign(payload, { expiresIn: '1h' })
         const refreshToken = this.jwtService.sign(payload, { secret: process.env.JWT_REFRESH_SECRET, expiresIn: '30d' })
         return { accessToken, refreshToken }
