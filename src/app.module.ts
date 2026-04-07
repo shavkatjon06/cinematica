@@ -1,10 +1,9 @@
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
 import { JwtModule } from '@nestjs/jwt';
 import { AuthModule } from './auth/auth.module';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { MongooseModule } from '@nestjs/mongoose';
+import { HallModule } from './hall/hall.module';
 
 @Module({
   imports: [
@@ -20,9 +19,8 @@ import { MongooseModule } from '@nestjs/mongoose';
       }),
       inject: [ConfigService],
     }),
-    AuthModule
+    AuthModule,
+    HallModule
   ],
-  controllers: [AppController],
-  providers: [AppService],
 })
 export class AppModule { }
