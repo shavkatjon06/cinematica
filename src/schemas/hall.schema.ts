@@ -9,20 +9,12 @@ class Row {
 
     @Prop({ required: true, enum: ['standard', 'comfort'], default: 'standard' })
     type: 'standard' | 'comfort'
+
+    @Prop({ required: true })
+    seats: number
 }
 
 const RowSchema = SchemaFactory.createForClass(Row)
-
-@Schema()
-class Layout {
-    @Prop({ required: true, type: [RowSchema] })
-    rows: Row[]
-
-    @Prop({ required: true })
-    seatsPerRow: number
-}
-
-const LayoutSchema = SchemaFactory.createForClass(Layout)
 
 @Schema({
     collection: "halls",
@@ -32,8 +24,8 @@ export class Hall {
     @Prop({ required: true })
     name: string
 
-    @Prop({ required: true, type: LayoutSchema })
-    layout: Layout
+    @Prop({ required: true, type: [RowSchema] })
+    rows: Row[]
 }
 
 export const HallSchema = SchemaFactory.createForClass(Hall)

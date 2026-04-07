@@ -1,114 +1,90 @@
 export const halls = [
     {
         name: "Hall 1",
-        layout: {
-            seatsPerRow: 10,
-            rows: [
-                { name: "A", type: "standard" },
-                { name: "B", type: "standard" },
-                { name: "C", type: "comfort" },
-                { name: "D", type: "standard" },
-                { name: "E", type: "standard" },
-            ],
-        },
+        rows: [
+            { name: "A", type: "standard", seats: 12 },
+            { name: "B", type: "standard", seats: 12 },
+            { name: "C", type: "comfort", seats: 8 },
+            { name: "D", type: "standard", seats: 12 },
+            { name: "E", type: "standard", seats: 12 },
+        ],
     },
     {
         name: "Hall 2",
-        layout: {
-            seatsPerRow: 12,
-            rows: [
-                { name: "A", type: "standard" },
-                { name: "B", type: "standard" },
-                { name: "C", type: "standard" },
-                { name: "D", type: "comfort" },
-                { name: "E", type: "standard" },
-                { name: "F", type: "standard" },
-            ],
-        },
+        rows: [
+            { name: "A", type: "standard", seats: 14 },
+            { name: "B", type: "standard", seats: 14 },
+            { name: "C", type: "comfort", seats: 10 },
+            { name: "D", type: "comfort", seats: 10 },
+            { name: "E", type: "standard", seats: 14 },
+            { name: "F", type: "standard", seats: 14 },
+        ],
     },
     {
         name: "Hall 3",
-        layout: {
-            seatsPerRow: 12,
-            rows: [
-                { name: "A", type: "standard" },
-                { name: "B", type: "standard" },
-                { name: "C", type: "standard" },
-                { name: "D", type: "comfort" },
-                { name: "E", type: "standard" },
-                { name: "F", type: "standard" },
-            ],
-        },
+        rows: [
+            { name: "A", type: "standard", seats: 14 },
+            { name: "B", type: "standard", seats: 14 },
+            { name: "C", type: "comfort", seats: 10 },
+            { name: "D", type: "comfort", seats: 10 },
+            { name: "E", type: "standard", seats: 14 },
+            { name: "F", type: "standard", seats: 14 },
+        ],
     },
     {
         name: "Hall 4",
-        layout: {
-            seatsPerRow: 14,
-            rows: [
-                { name: "A", type: "standard" },
-                { name: "B", type: "standard" },
-                { name: "C", type: "standard" },
-                { name: "D", type: "comfort" },
-                { name: "E", type: "standard" },
-                { name: "F", type: "standard" },
-                { name: "G", type: "standard" },
-            ],
-        },
+        rows: [
+            { name: "A", type: "standard", seats: 16 },
+            { name: "B", type: "standard", seats: 16 },
+            { name: "C", type: "standard", seats: 16 },
+            { name: "D", type: "comfort", seats: 12 },
+            { name: "E", type: "standard", seats: 16 },
+            { name: "F", type: "standard", seats: 16 },
+            { name: "G", type: "standard", seats: 16 },
+        ],
     },
     {
         name: "Hall 5",
-        layout: {
-            seatsPerRow: 14,
-            rows: [
-                { name: "A", type: "standard" },
-                { name: "B", type: "standard" },
-                { name: "C", type: "standard" },
-                { name: "D", type: "comfort" },
-                { name: "E", type: "standard" },
-                { name: "F", type: "standard" },
-                { name: "G", type: "standard" },
-            ],
-        },
+        rows: [
+            { name: "A", type: "standard", seats: 16 },
+            { name: "B", type: "standard", seats: 16 },
+            { name: "C", type: "standard", seats: 16 },
+            { name: "D", type: "comfort", seats: 12 },
+            { name: "E", type: "standard", seats: 16 },
+            { name: "F", type: "standard", seats: 16 },
+            { name: "G", type: "standard", seats: 16 },
+        ],
     },
     {
         name: "Hall 6",
-        layout: {
-            seatsPerRow: 16,
-            rows: [
-                { name: "A", type: "standard" },
-                { name: "B", type: "standard" },
-                { name: "C", type: "standard" },
-                { name: "D", type: "comfort" },
-                { name: "E", type: "comfort" },
-                { name: "F", type: "standard" },
-                { name: "G", type: "standard" },
-                { name: "H", type: "standard" },
-            ],
-        },
+        rows: [
+            { name: "A", type: "standard", seats: 18 },
+            { name: "B", type: "standard", seats: 18 },
+            { name: "C", type: "standard", seats: 18 },
+            { name: "D", type: "comfort", seats: 12 },
+            { name: "E", type: "comfort", seats: 12 },
+            { name: "F", type: "standard", seats: 18 },
+            { name: "G", type: "standard", seats: 18 },
+            { name: "H", type: "standard", seats: 18 },
+        ],
     },
     {
         name: "VIP Hall 1",
-        layout: {
-            seatsPerRow: 6,
-            rows: [
-                { name: "A", type: "comfort" },
-                { name: "B", type: "comfort" },
-                { name: "C", type: "comfort" },
-                { name: "D", type: "comfort" },
-            ],
-        },
+        rows: [
+            { name: "A", type: "comfort", seats: 6 },
+            { name: "B", type: "comfort", seats: 6 },
+            { name: "C", type: "comfort", seats: 6 },
+            { name: "D", type: "comfort", seats: 6 },
+        ],
     },
     {
         name: "VIP Hall 2",
-        layout: {
-            seatsPerRow: 8,
-            rows: [
-                { name: "A", type: "comfort" },
-                { name: "B", type: "comfort" },
-                { name: "C", type: "comfort" },
-                { name: "D", type: "comfort" },
-                { name: "E", type: "comfort" },
-            ],
-        },
+        rows: [
+            { name: "A", type: "comfort", seats: 8 },
+            { name: "B", type: "comfort", seats: 8 },
+            { name: "C", type: "comfort", seats: 8 },
+            { name: "D", type: "comfort", seats: 8 },
+            { name: "E", type: "comfort", seats: 8 },
+        ],
     },
 ]
