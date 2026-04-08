@@ -1,8 +1,7 @@
-<!-- user -->
+<!-- admin -->
 name
 email
 password
-role: user | admin
 
 
 <!-- movies: -->
@@ -16,11 +15,10 @@ age rating
 
 <!-- cinema hall -->
 name
-total_seats
-layout {
-    row[]
-    seatsPerRow
-    comforRows[]
+raws {
+    name
+    type: 'standard' | 'comfort'
+    seats
 }
 
 
@@ -29,13 +27,16 @@ movie id
 hall id
 start time
 end time
-price
+price: {
+    standard,
+    comfort
+}
 
 
 <!-- booking -->
 user id
 screening id
-seats [{row, number, status: standard | comfort}]
+seat
 amount
 status: pending, confirmed, cancelled
 

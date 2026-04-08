@@ -5,6 +5,7 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import { MongooseModule } from '@nestjs/mongoose';
 import { HallModule } from './hall/hall.module';
 import { MovieModule } from './movie/movie.module';
+import { ScreeningModule } from './screening/screening.module';
 
 @Module({
   imports: [
@@ -22,7 +23,8 @@ import { MovieModule } from './movie/movie.module';
     }),
     AuthModule,
     HallModule,
-    MovieModule
+    MovieModule,
+    ScreeningModule
   ],
 })
 export class AppModule { }
